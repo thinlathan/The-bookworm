@@ -5,7 +5,7 @@ Additionally, the following is used to implement the web page "The Bookworm"
 
 Features of the web page "The Bookworm"
 1) Sign up. Log in and log out.
-2) Search for books user keyword.
+2) Search for books using keyword.
 3) Read details (fetched from database and API) about the book 
 4) Add reviews and rating, and view others' review and rating
 5) API access with /api/<isbn> route where the webpage will return a JSON response 
