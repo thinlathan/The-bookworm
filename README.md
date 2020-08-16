@@ -1,5 +1,4 @@
-# Project 1
-Web Programming with Python (Flask framework)
+# Project 1: Web Programming with Python (Flask framework)
 Additionally, the following is used to implement the web page "The Bookworm"
  1) PostgreSQL interation with database stored in Heroku
  2) Retrieve data from Goodreads API for rating etc.
