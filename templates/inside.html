@@ -1,0 +1,47 @@
+{% extends "layout.html"%}
+
+{%block sidebar%}
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand nav-link disabled href=" #" tabindex="-1" aria-disabled="true" href="#">Welcome
+        {{username}}!</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="{{url_for('logIn')}}" style="color: black;">Search for another book</a> </div>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="{{url_for('logout')}}">Log Out</a> </div>
+    </div>
+</nav>
+{%endblock%}
+
+{%block body%}
+<div id="searchForm" class="mx-auto" style="width: 80%;padding-top:10%">
+    <form action="{{url_for('search')}}" method="POST">
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Keyword</label>
+            <div class="col-sm-10">
+                <input class="form-control mr-sm-2" type="search" name="search">
+            </div>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="isbn" id="inlineRadio1" value="isbn">
+            <label class="form-check-label" for="inlineRadio1">ISBN</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="title" id="inlineRadio2" value="title">
+            <label class="form-check-label" for="inlineRadio2">Title</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="author" id="inlineRadio3" value="author">
+            <label class="form-check-label" for="inlineRadio3">Author</label>
+        </div>
+        <button type="submit" class="btn btn-outline-dark btn-lg btn-block"
+            style="margin-top: 2%;padding: 0%;">Search</button>
+    </form>
+</div>
+{%endblock%}

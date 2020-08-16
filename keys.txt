@@ -1,0 +1,12 @@
+API
+key: B0cG0AVb0hO84rdwYDxuQ
+secret: eY106Fgsj18sDPnqNmGL2Qw9sqPZV4N4QqZE21XE
+
+Host:ec2-34-198-243-120.compute-1.amazonaws.com
+Database:dp6aa4vgb1f8i
+User:qqbtleieqckxbs
+Port:5432
+Password:63fffb4d3b0d624770287c35646381d2e56dc3e2aae838320cf8d001c25187d3
+URI:postgres://qqbtleieqckxbs:63fffb4d3b0d624770287c35646381d2e56dc3e2aae838320cf8d001c25187d3@ec2-34-198-243-120.compute-1.amazonaws.com:5432/dp6aa4vgb1f8i
+Heroku CLI:heroku pg:psql postgresql-tapered-14886 --app book-thinlathan
+

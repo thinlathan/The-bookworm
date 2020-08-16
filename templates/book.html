@@ -1,0 +1,114 @@
+{% extends "inside.html"%}
+
+{%block pop%}
+{%endblock%}
+{%block body%}
+<table class="table table-borderless col-lg-6 col-sm-6 mx-auto" style="border-style:groove;margin-top:10%;">
+  <tbody>
+    <tr>
+      <td>Title</td>
+      <td>{{book[2]}}</td>
+    </tr>
+    <tr>
+      <td>Author</td>
+      <td>{{book[3]}}</td>
+    </tr>
+    <tr>
+      <td>Year</td>
+      <td>{{book[4]}}</td>
+    </tr>
+    <tr>
+      <td>ISBN</td>
+      <td>{{book[1]}}</td>
+    </tr>
+    <tr>
+      <td>Rating</td>
+      {% if book[5] == 0%}
+      <td>{{book[6]}} (No one has rated)</td>
+      {%elif book[5] == 1%}
+      <td>{{book[6]}} ({{book[5]}} person has rated)</td>
+      {%else%}
+      <td>{{book[6]}} ({{book[5]}} people has rated)</td>
+      {% endif %}
+    </tr>
+    <tr>
+      <td>Goodreads Rating</td>
+      {% if grRatingCount == 0%}
+      <td>{{grRating}} (No one has rated)</td>
+      {%elif grRatingCount == 1%}
+      <td>{{grAverageRating}} ({{grRatingCount}} person has rated)</td>
+      {%else%}
+      <td>{{grAverageRating}} ({{grRatingCount}} people has rated)</td>
+      {% endif %}
+    </tr>
+  </tbody>
+</table>
+
+<table class=" table table-borderless col-lg-6 col-sm-6 mx-auto" style="padding-left: 0%;">
+  <thead>
+    <tr>
+      <th scope="col">
+        <p>
+          <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#bookReview"
+            aria-expanded="false" aria-controls="collapseExample">
+            View reviews({{book[5]}})
+          </button>
+        </p>
+      </th>
+
+      <th scope="col">
+        <p class="text-right">
+          <button class="btn btn-outline-dark " type="button" data-toggle="collapse" data-target="#writeReview"
+            aria-expanded="false" aria-controls="collapseExample">
+            Write a review!
+          </button>
+        </p>
+      </th>
+    </tr>
+  </thead>
+</table>
+
+<div class="collapse col-lg-6 col-sm-6 mx-auto" id="bookReview">
+  <div class="card card-body bg-transparent">
+    {% if book[5] != 0%}
+    {%for i in review%}
+    <table class="table table-borderless" style="border-style:groove;">
+      <tbody>
+        <tr>
+          <td>Rating: {{i[2]}}</td>
+          <td>User: {{i[0]}}</td>
+        </tr>
+        <tr>
+          <td colspan="2">{{i[3]}}</td>
+        </tr>
+      </tbody>
+    </table>
+    {%endfor%}
+    {%endif%}
+  </div>
+</div>
+
+<div class="collapse col-lg-6 col-sm-6 mx-auto" id="writeReview">
+  <div class="card card-body bg-transparent">
+    <form action="{{url_for('reviewed')}}" method="POST">
+      <div class="form-group">
+        <label for="inputState">Rating</label>
+        <select id="inputState" class="form-control" name="rating">
+          <option selected value="5">5</option>
+          <option value="4">4</option>
+          <option value="3">3</option>
+          <option value="2">2</option>
+          <option value="1">1</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Review</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="review"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-dark" name="bookid" value={{book[0]}}>Submit</button>
+      </button>
+    </form>
+  </div>
+</div>
+{%endblock%}

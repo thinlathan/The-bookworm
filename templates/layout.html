@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>The BookWorm</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/layout.css')}}">
+    {%block css%}
+    {%endblock%}
+</head>
+
+<body>
+    {%block content%}
+    {%endblock%}
+    <header>
+        <nav class="navbar navbar-light" style="background-color:transparent;">
+            <!-- Navbar content -->
+            <h3>The BookWorm</h3>
+            {%block sidebar%}
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand nav-link disabled href=" #" tabindex="-1" aria-disabled="true" href="#">:)</a>
+            </nav>
+            {%endblock%}
+        </nav>
+    </header>
+    {%block body%}
+    <div id="background">
+        <div id="logInForm" class="mx-auto" style="width: 200px;">
+            <p>
+                <a class="btn btn-dark" data-toggle="collapse" href="#logIn" role="button" aria-expanded="false"
+                    aria-controls="collapseExample">
+                    Log In
+                </a>
+                <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#register"
+                    aria-expanded="false" aria-controls="collapseExample">
+                    Register Now!
+                </button>
+            </p>
+            <div class="collapse show" id="logIn" aria-expanded="true">
+                <div class="card card-body">
+                    <form action="{{url_for('logIn')}}" method="POST">
+                        <h5>Log In</h5>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Username</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" name="username"
+                                placeholder="Enter Username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" name="password"
+                                placeholder="Enter Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Log In</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="collapse" id="register">
+                <div class="card card-body">
+                    <form action="{{url_for('register')}}" method="POST">
+                        <h5>Register Now!</h5>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Username</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" name="rusername"
+                                placeholder="Enter Username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" name="rpassword"
+                                placeholder="Enter Password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Repeat Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" name="rrpassword"
+                                placeholder="Repeat Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%endblock%}
+</body>
+
+</html>
